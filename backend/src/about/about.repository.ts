@@ -1,6 +1,6 @@
-import { EntityRepository, Repository } from 'typeorm';
-import { CreateAboutDto } from './dto/create-about.dto';
-import { About } from './entities/about.entity';
+import { EntityRepository, Repository } from "typeorm";
+import { CreateAboutDto } from "./dto/create-about.dto";
+import { About } from "./entities/about.entity";
 
 @EntityRepository(About)
 export class AboutRepository extends Repository<About> {
