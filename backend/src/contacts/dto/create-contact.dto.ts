@@ -1,4 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
+import { PhoneNumber } from './../entities/phoneNumber.entity';
 
 export class CreateContactDto {
   @IsNotEmpty()
@@ -10,7 +11,7 @@ export class CreateContactDto {
   @IsNotEmpty()
   adressRU: string;
 
-  phones: string[];
+  phones: PhoneNumber[];
 
   emails: string[];
 

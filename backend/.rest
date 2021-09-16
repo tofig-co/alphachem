@@ -22,3 +22,17 @@ content-type: application/json
     "en": "en3 about",
     "ru": "ru3 about"
 }
+
+###
+
+POST http://localhost:3000/contacts/ HTTP/1.1
+content-type: application/json 
+
+{
+    "phones": ["123"]
+}
+
+###
+
+GET http://localhost:3000/contacts/ HTTP/1.1
+content-type: application/json 

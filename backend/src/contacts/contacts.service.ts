@@ -11,8 +11,8 @@ export class ContactsService {
     @InjectRepository(ContactsRepository)
     private contactsRepository: ContactsRepository
   ) {}
-  async create(createContactDto: CreateContactDto) {
-    return 'This action adds a new contact';
+  async create(createContactDto: CreateContactDto): Promise<Contact> {
+    return this.contactsRepository.createContact(createContactDto);
   }
 
   async find(): Promise<Contact> {
