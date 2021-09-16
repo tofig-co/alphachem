@@ -1,34 +1,27 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { PhoneNumber } from './phoneNumber.entity';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Contact extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  //   @Column()
-  //   adressAZ: string;
+  @Column()
+  adressAZ: string;
 
-  //   @Column()
-  //   adressEN: string;
+  @Column()
+  adressEN: string;
 
-  //   @Column()
-  //   adressRU: string;
+  @Column()
+  adressRU: string;
 
-  @OneToMany((type) => PhoneNumber, (phoneNumber) => phoneNumber.contact)
-  phones: PhoneNumber[];
+  @Column()
+  phones: string;
 
-  //   @Column()
-  //   emails: string[];
+  @Column()
+  emails: string;
 
-  //   @Column()
-  //   locationLat: string;
+  @Column()
+  locationLat: string;
 
-  //   @Column()
-  //   locationLong: string;
+  @Column()
+  locationLong: string;
 }

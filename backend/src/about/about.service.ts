@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { CreateAboutDto } from './dto/create-about.dto';
-import { UpdateAboutDto } from './dto/update-about.dto';
-import { About } from './entities/about.entity';
-import { AboutRepository } from './about.repository';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { CreateAboutDto } from "./dto/create-about.dto";
+import { UpdateAboutDto } from "./dto/update-about.dto";
+import { About } from "./entities/about.entity";
+import { AboutRepository } from "./about.repository";
 
 @Injectable()
 export class AboutService {

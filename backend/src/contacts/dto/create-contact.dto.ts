@@ -1,5 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
-import { PhoneNumber } from './../entities/phoneNumber.entity';
+import { IsNotEmpty } from "class-validator";
 
 export class CreateContactDto {
   @IsNotEmpty()
@@ -11,9 +10,10 @@ export class CreateContactDto {
   @IsNotEmpty()
   adressRU: string;
 
-  phones: PhoneNumber[];
+  @IsNotEmpty()
+  phones: string;
 
-  emails: string[];
+  emails: string;
 
   @IsNotEmpty()
   locationLat: string;
