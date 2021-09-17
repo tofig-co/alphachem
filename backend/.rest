@@ -73,3 +73,14 @@ content-type: application/json
 {
     "title": "updated title"
 }
+
+
+###
+
+PATCH http://localhost:3000/api/slider/1 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "updated title",
+    "description": "updated description"
+}

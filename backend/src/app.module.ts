@@ -5,6 +5,7 @@ import { AboutModule } from "./about/about.module";
 import { ContactsModule } from "./contacts/contacts.module";
 import { ProductsModule } from "./products/products.module";
 import { MulterModule } from "@nestjs/platform-express";
+import { SliderModule } from './slider/slider.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { MulterModule } from "@nestjs/platform-express";
     AboutModule,
     ContactsModule,
     ProductsModule,
+    SliderModule,
   ],
 })
 export class AppModule {}

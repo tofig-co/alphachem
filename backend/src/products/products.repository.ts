@@ -9,7 +9,9 @@ export class ProductsRepository extends Repository<Product> {
     createProductDto: CreateProductDto
   ): Promise<Product> {
     const product = new Product();
-    product.title = createProductDto.title;
+    product.titleAZ = createProductDto.titleAZ;
+    product.titleEN = createProductDto.titleEN;
+    product.titleRU = createProductDto.titleRU;
     product.imageUrl = filename;
 
     await product.save();

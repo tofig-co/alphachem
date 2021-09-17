@@ -32,7 +32,9 @@ export class ProductsService {
   ): Promise<Product> {
     const product = await this.findOne(id);
 
-    product.title = updateProductDto.title;
+    product.titleAZ = updateProductDto.titleAZ;
+    product.titleEN = updateProductDto.titleEN;
+    product.titleRU = updateProductDto.titleRU;
 
     await product.save();
     return product;

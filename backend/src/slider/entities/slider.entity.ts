@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Product extends BaseEntity {
+export class Slider extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -9,10 +9,17 @@ export class Product extends BaseEntity {
   titleAZ: string;
 
   @Column()
+  descriptionAZ: string;
+  @Column()
   titleEN: string;
 
   @Column()
+  descriptionEN: string;
+  @Column()
   titleRU: string;
+
+  @Column()
+  descriptionRU: string;
 
   @Column()
   imageUrl: string;
