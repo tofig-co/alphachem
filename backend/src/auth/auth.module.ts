@@ -15,7 +15,7 @@ import { UserRepository } from "./user.repository";
     JwtModule.register({
       secret: "alphachemSecretToken547",
       signOptions: {
-        expiresIn: 3600,
+        expiresIn: "7d",
       },
     }),
     TypeOrmModule.forFeature([UserRepository]),
