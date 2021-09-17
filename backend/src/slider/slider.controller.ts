@@ -11,6 +11,7 @@ import {
   Res,
   ValidationPipe,
   UsePipes,
+  UseGuards,
 } from "@nestjs/common";
 import { diskStorage } from "multer";
 import { SliderService } from "./slider.service";
@@ -19,12 +20,14 @@ import { UpdateSliderDto } from "./dto/update-slider.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { editFileName, imageFileFilter } from "src/utils/file-uploading.utils";
 import { Slider } from "./entities/slider.entity";
+import { AuthGuard } from "@nestjs/passport";
 
 @Controller("slider")
 export class SliderController {
   constructor(private readonly sliderService: SliderService) {}
 
   @Post()
+  @UseGuards(AuthGuard())
   @UsePipes(ValidationPipe)
   @UseInterceptors(
     FileInterceptor("photo", {
@@ -58,6 +61,7 @@ export class SliderController {
   }
 
   @Patch(":id")
+  @UseGuards(AuthGuard())
   @UsePipes(ValidationPipe)
   update(
     @Param("id") id: string,
@@ -67,6 +71,7 @@ export class SliderController {
   }
 
   @Delete(":id")
+  @UseGuards(AuthGuard())
   remove(@Param("id") id: string) {
     return this.sliderService.remove(+id);
   }

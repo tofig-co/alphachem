@@ -84,3 +84,28 @@ content-type: application/json
     "title": "updated title",
     "description": "updated description"
 }
+
+###
+
+POST http://localhost:3000/api/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username": "testUsername1",
+    "password": "asd!345345A"
+}
+###
+POST http://localhost:3000/api/auth/signin HTTP/1.1
+content-type: application/json
+
+{
+    "username": "testUsername1",
+    "password": "asd!345345A"
+}
+###
+POST http://localhost:3000/auth/test HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VybmFtZTIiLCJpYXQiOjE2Mjk4OTczNzQsImV4cCI6MTYyOTkwMDk3NH0.FsI6C1sY3MTe6PeHCXrVnXf7VXWDC5TjqyJtHdt1M24
+
+{}
+###
