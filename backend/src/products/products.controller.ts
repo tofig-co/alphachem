@@ -16,6 +16,7 @@ import { UpdateProductDto } from "./dto/update-product.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { editFileName, imageFileFilter } from "src/utils/file-uploading.utils";
 import { diskStorage } from "multer";
+import { Product } from "./entities/product.entity";
 
 @Controller("products")
 export class ProductsController {
@@ -31,8 +32,11 @@ export class ProductsController {
       fileFilter: imageFileFilter,
     })
   )
-  create(@UploadedFile() file, @Body() body: CreateProductDto) {
-    return { file, body };
+  create(
+    @UploadedFile() file,
+    @Body() body: CreateProductDto
+  ): Promise<Product> {
+    return this.productsService.create(file.filename, body);
   }
 
   @Get("/image/:imgpath")
@@ -41,7 +45,7 @@ export class ProductsController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<Product[]> {
     return this.productsService.findAll();
   }
 
