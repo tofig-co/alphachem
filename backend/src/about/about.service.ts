@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateAboutDto } from "./dto/create-about.dto";
 import { UpdateAboutDto } from "./dto/update-about.dto";
@@ -16,7 +16,12 @@ export class AboutService {
   }
 
   async find(): Promise<About> {
-    return this.aboutRepository.findOne(undefined);
+    const found = await this.aboutRepository.findOne(undefined);
+
+    if (!found) {
+      throw new NotFoundException(`About not found`);
+    }
+    return found;
   }
 
   async update(updateAboutDto: UpdateAboutDto): Promise<About> {

@@ -69,9 +69,10 @@ content-type: application/json
 
 PATCH http://localhost:3000/api/products/3 HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VybmFtZTEiLCJpYXQiOjE2MzE4ODY5OTcsImV4cCI6MTYzMjQ5MTc5N30.IvdKzTCv7dNSIWjV4Oq17ugBaRjNcBevEQOtA-FBHfU
 
 {
-    "title": "updated title"
+    "titleAZ": "updated title"
 }
 
 

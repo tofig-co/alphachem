@@ -23,7 +23,12 @@ export class SliderService {
   }
 
   async findOne(id: number): Promise<Slider> {
-    return this.sliderRepository.findOne(id);
+    const found = await this.sliderRepository.findOne(id);
+
+    if (!found) {
+      throw new NotFoundException(`Slide with id: "${id}" is not found`);
+    }
+    return found;
   }
 
   async update(id: number, updateSliderDto: UpdateSliderDto): Promise<Slider> {

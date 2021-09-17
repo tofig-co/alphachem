@@ -16,7 +16,12 @@ export class ContactsService {
   }
 
   async find(): Promise<Contact> {
-    return this.contactsRepository.findOne(undefined);
+    const found = await this.contactsRepository.findOne(undefined);
+
+    if (!found) {
+      throw new NotFoundException(`Contacts not found`);
+    }
+    return found;
   }
 
   async update(updateContactDto: UpdateContactDto): Promise<Contact> {

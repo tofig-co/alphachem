@@ -5,8 +5,8 @@ import { AboutModule } from "./about/about.module";
 import { ContactsModule } from "./contacts/contacts.module";
 import { ProductsModule } from "./products/products.module";
 import { MulterModule } from "@nestjs/platform-express";
-import { SliderModule } from './slider/slider.module';
-import { AuthModule } from './auth/auth.module';
+import { SliderModule } from "./slider/slider.module";
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   imports: [
