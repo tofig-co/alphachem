@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ContactsRepository } from "./contacts.repository";
 import { CreateContactDto } from "./dto/create-contact.dto";
