@@ -7,4 +7,7 @@ export class Product extends BaseEntity {
 
   @Column()
   title: string;
+
+  @Column()
+  imageUrl: string;
 }
