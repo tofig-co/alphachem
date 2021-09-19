@@ -33,8 +33,17 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
+  axios: {
+    // baseURL: 'https://alphachem.az/api',
+    credentials: false,
+    proxy: true,
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:3000/api',
+      pathRewrite: { '^/api/': '' },
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 

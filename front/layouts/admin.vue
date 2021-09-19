@@ -4,20 +4,29 @@
       <div class="logo">Alphachem Admin</div>
       <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
         <a-menu-item key="1">
-          <a-icon type="file" />
-          <span>Slider</span>
+          <nuxt-link :to="'/admin/slider'">
+            <a-icon type="file" />
+            <span>Slider</span>
+          </nuxt-link>
         </a-menu-item>
+
         <a-menu-item key="2">
-          <a-icon type="appstore" />
-          <span>Products</span>
+          <nuxt-link :to="'/admin/products'">
+            <a-icon type="appstore" />
+            <span>Products</span>
+          </nuxt-link>
         </a-menu-item>
         <a-menu-item key="3">
-          <a-icon type="info-circle" />
-          <span>About</span>
+          <nuxt-link :to="'/admin/about'">
+            <a-icon type="info-circle" />
+            <span>About</span>
+          </nuxt-link>
         </a-menu-item>
         <a-menu-item key="4">
-          <a-icon type="phone" />
-          <span>Contacts</span>
+          <nuxt-link :to="'/admin/contacts'">
+            <a-icon type="phone" />
+            <span>Contacts</span>
+          </nuxt-link>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -37,7 +46,7 @@
           minHeight: '280px',
         }"
       >
-        Content
+        <nuxt />
       </a-layout-content>
     </a-layout>
   </a-layout>
