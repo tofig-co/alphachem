@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger">
+  <a-layout id="components-layout-demo-custom-trigger" v-if="token">
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
       <div class="logo">Alphachem Admin</div>
       <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
@@ -37,6 +37,7 @@
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="() => (collapsed = !collapsed)"
         />
+        <a-icon class="trigger logout" :type="'logout'" @click="logout" />
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -58,6 +59,33 @@ export default {
       collapsed: false,
     }
   },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout').then((v) => {
+        window.location.reload()
+      })
+    },
+  },
+  name: 'admin-layout',
+  computed: {
+    token() {
+      return this.$store.state.token
+    },
+  },
+  watch: {
+    $route() {
+      this.$store.dispatch('initAuth').then()
+      if (!this.token) {
+        this.$router.push('/login')
+      }
+    },
+  },
+  mounted() {
+    this.$store.dispatch('initAuth').then()
+    if (!this.token) {
+      this.$router.push('/login')
+    }
+  },
 }
 </script>
 <style>
@@ -70,6 +98,9 @@ export default {
   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
+}
+#components-layout-demo-custom-trigger .trigger.logout {
+  float: right;
 }
 
 #components-layout-demo-custom-trigger .trigger:hover {

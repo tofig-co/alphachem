@@ -28,7 +28,7 @@
           :validate-status="passwordError() ? 'error' : ''"
           :help="passwordError() || ''"
         >
-          <a-input
+          <a-input-password
             v-decorator="[
               'password',
               {
@@ -45,7 +45,7 @@
               type="lock"
               style="color: rgba(0, 0, 0, 0.25)"
             />
-          </a-input>
+          </a-input-password>
         </a-form-item>
         <a-form-item>
           <a-button
@@ -113,7 +113,7 @@ export default {
             })
             .then((v) => {
               if (!v.error) {
-                this.$router.push('/admin/')
+                this.$router.push('/admin/slider')
               }
             })
         }
