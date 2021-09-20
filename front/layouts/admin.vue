@@ -81,7 +81,13 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch('initAuth').then()
+    this.$store.dispatch('initAuth').then((v) => {
+      this.$axios.setToken(this.$store.state.token, 'Bearer', [
+        'post',
+        'delete',
+        'patch',
+      ])
+    })
     if (!this.token) {
       this.$router.push('/login')
     }

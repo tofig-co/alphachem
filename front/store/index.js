@@ -37,6 +37,33 @@ export const actions = {
       })
       .catch((e) => console.log(e))
   },
+  addSlide(vuexContext, { slide }) {
+    return this.$axios
+      .$post('/api/slider', slide, {
+        header: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        vuexContext.dispatch('getSlider')
+        return res
+      })
+      .catch((e) => e)
+  },
+
+  editSlide(vuexContext, { slide, id }) {
+    return this.$axios
+      .$patch('/api/slider/' + id, slide, {
+        header: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        vuexContext.dispatch('getSlider')
+        return res
+      })
+      .catch((e) => e)
+  },
   initAuth(vuexContext) {
     let token = localStorage.getItem('token')
     if (!token) {
