@@ -64,6 +64,16 @@ export const actions = {
       })
       .catch((e) => e)
   },
+
+  deleteSlide(vuexContext, id) {
+    return this.$axios
+      .$delete('/api/slider/' + id)
+      .then((res) => {
+        vuexContext.dispatch('getSlider')
+        return res
+      })
+      .catch((e) => e)
+  },
   initAuth(vuexContext) {
     let token = localStorage.getItem('token')
     if (!token) {

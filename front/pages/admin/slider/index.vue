@@ -17,7 +17,14 @@
           :type="'edit'"
           @click="() => showModal('edit', id.id)"
         />
-        <a-icon class="action-btn" :type="'delete'" />
+        <a-popconfirm
+          style="cursor: pointer"
+          v-if="slides.length"
+          title="Sure to delete?"
+          @confirm="() => deleteSlideConfirm(id.id)"
+        >
+          <a-icon class="action-btn" :type="'delete'" />
+        </a-popconfirm>
       </span>
     </a-table>
 
@@ -203,6 +210,9 @@ export default {
           .catch((e) => console.log(e))
       }
     },
+    deleteSlideConfirm(id) {
+      this.$store.dispatch('deleteSlide', id)
+    },
     handleCancel(e) {
       this.visible = false
       this.confirmLoading = false
@@ -225,7 +235,6 @@ export default {
 
       this.form.validateFields((err, values) => {
         if (!err) {
-          debugger
           const formData = new FormData()
 
           for (const [key, value] of Object.entries(values)) {
