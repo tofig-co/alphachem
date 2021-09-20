@@ -3,6 +3,7 @@ export const state = () => ({
   slider: [],
   products: [],
   about: [],
+  contacts: null,
 })
 
 export const mutations = {
@@ -21,6 +22,9 @@ export const mutations = {
   },
   setAbout(state, about) {
     state.about = about
+  },
+  setContacts(state, contacts) {
+    state.contacts = contacts
   },
 }
 export const actions = {
@@ -140,6 +144,23 @@ export const actions = {
       .$patch('/api/about/' + id, about)
       .then((res) => {
         vuexContext.dispatch('getAbout')
+        return res
+      })
+      .catch((e) => e)
+  },
+  getContacts(vuexContext) {
+    return this.$axios
+      .$get('/api/contacts')
+      .then((res) => {
+        vuexContext.commit('setContacts', res)
+      })
+      .catch((e) => console.log(e))
+  },
+  editContacts(vuexContext, contacts) {
+    return this.$axios
+      .$patch('/api/contacts', contacts)
+      .then((res) => {
+        vuexContext.dispatch('getContacts')
         return res
       })
       .catch((e) => e)
