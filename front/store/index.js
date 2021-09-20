@@ -1,6 +1,7 @@
 export const state = () => ({
   token: null,
   slider: [],
+  products: [],
 })
 
 export const mutations = {
@@ -13,6 +14,9 @@ export const mutations = {
   },
   setSlider(state, slider) {
     state.slider = slider
+  },
+  setProducts(state, products) {
+    state.products = products
   },
 }
 export const actions = {
@@ -70,6 +74,51 @@ export const actions = {
       .$delete('/api/slider/' + id)
       .then((res) => {
         vuexContext.dispatch('getSlider')
+        return res
+      })
+      .catch((e) => e)
+  },
+  getProducts(vuexContext) {
+    return this.$axios
+      .$get('/api/products')
+      .then((res) => {
+        vuexContext.commit('setProducts', res)
+      })
+      .catch((e) => console.log(e))
+  },
+  addProduct(vuexContext, { product }) {
+    return this.$axios
+      .$post('/api/products', product, {
+        header: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        vuexContext.dispatch('getProducts')
+        return res
+      })
+      .catch((e) => e)
+  },
+
+  editProduct(vuexContext, { product, id }) {
+    return this.$axios
+      .$patch('/api/products/' + id, product, {
+        header: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        vuexContext.dispatch('getProducts')
+        return res
+      })
+      .catch((e) => e)
+  },
+
+  deleteProduct(vuexContext, id) {
+    return this.$axios
+      .$delete('/api/products/' + id)
+      .then((res) => {
+        vuexContext.dispatch('getProducts')
         return res
       })
       .catch((e) => e)

@@ -250,7 +250,7 @@ export default {
           this.$store
             .dispatch(type, { slide: payload, id: this.itemId })
             .then((v) => {
-              this.confirmLoading = false
+              this.handleCancel(null)
             })
             .catch((err) => console.log(err))
         }
