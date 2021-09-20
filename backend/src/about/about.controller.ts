@@ -28,13 +28,13 @@ export class AboutController {
   }
 
   @Get()
-  find(): Promise<About> {
+  find(): Promise<About[]> {
     return this.aboutService.find();
   }
 
   @Patch()
   @UseGuards(AuthGuard())
-  update(@Body() updateAboutDto: UpdateAboutDto) {
-    return this.aboutService.update(updateAboutDto);
+  update(@Body() updateAboutDto: UpdateAboutDto, @Param("id") id: string) {
+    return this.aboutService.update(updateAboutDto, +id);
   }
 }

@@ -6,11 +6,20 @@ export class About extends BaseEntity {
   id: number;
 
   @Column()
-  az: string;
+  titleAZ: string;
 
   @Column()
-  en: string;
+  descriptionAZ: string;
 
   @Column()
-  ru: string;
+  titleEN: string;
+
+  @Column()
+  descriptionEN: string;
+
+  @Column()
+  titleRU: string;
+
+  @Column()
+  descriptionRU: string;
 }

@@ -15,8 +15,17 @@ export class AboutService {
     return this.aboutRepository.createAbout(createAboutDto);
   }
 
-  async find(): Promise<About> {
-    const found = await this.aboutRepository.findOne(undefined);
+  async findOne(id: number) {
+    const found = await this.aboutRepository.findOne(id);
+
+    if (!found) {
+      throw new NotFoundException(`Product with id: "${id}" is not found`);
+    }
+    return found;
+  }
+
+  async find(): Promise<About[]> {
+    const found = await this.aboutRepository.find();
 
     if (!found) {
       throw new NotFoundException(`About not found`);
@@ -24,11 +33,14 @@ export class AboutService {
     return found;
   }
 
-  async update(updateAboutDto: UpdateAboutDto): Promise<About> {
-    const about = await this.find();
-    about.az = updateAboutDto.az;
-    about.en = updateAboutDto.en;
-    about.ru = updateAboutDto.ru;
+  async update(updateAboutDto: UpdateAboutDto, id: number): Promise<About> {
+    const about = await this.findOne(id);
+    about.titleAZ = updateAboutDto.titleAZ;
+    about.titleEN = updateAboutDto.titleEN;
+    about.titleRU = updateAboutDto.titleRU;
+    about.descriptionAZ = updateAboutDto.descriptionAZ;
+    about.descriptionEN = updateAboutDto.descriptionEN;
+    about.descriptionRU = updateAboutDto.descriptionRU;
     await about.save();
     return about;
   }

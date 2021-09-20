@@ -2,11 +2,20 @@ import { IsNotEmpty } from "class-validator";
 
 export class CreateAboutDto {
   @IsNotEmpty()
-  az: string;
+  titleAZ: string;
 
   @IsNotEmpty()
-  en: string;
+  descriptionAZ: string;
 
   @IsNotEmpty()
-  ru: string;
+  titleEN: string;
+
+  @IsNotEmpty()
+  descriptionEN: string;
+
+  @IsNotEmpty()
+  titleRU: string;
+
+  @IsNotEmpty()
+  descriptionRU: string;
 }

@@ -1,7 +1,7 @@
 <template>
   <a-layout id="components-layout-demo-custom-trigger" v-if="token">
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-      <div class="logo">Alphachem Admin</div>
+      <div class="logo"><span v-if="!collapsed">Alphachem Admin</span></div>
       <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
         <a-menu-item key="1">
           <nuxt-link :to="'/admin/slider'">
