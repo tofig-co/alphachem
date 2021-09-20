@@ -2,6 +2,7 @@ export const state = () => ({
   token: null,
   slider: [],
   products: [],
+  about: [],
 })
 
 export const mutations = {
@@ -17,6 +18,9 @@ export const mutations = {
   },
   setProducts(state, products) {
     state.products = products
+  },
+  setAbout(state, about) {
+    state.about = about
   },
 }
 export const actions = {
@@ -119,6 +123,23 @@ export const actions = {
       .$delete('/api/products/' + id)
       .then((res) => {
         vuexContext.dispatch('getProducts')
+        return res
+      })
+      .catch((e) => e)
+  },
+  getAbout(vuexContext) {
+    return this.$axios
+      .$get('/api/about')
+      .then((res) => {
+        vuexContext.commit('setAbout', res)
+      })
+      .catch((e) => console.log(e))
+  },
+  editAbout(vuexContext, { about, id }) {
+    return this.$axios
+      .$patch('/api/about/' + id, about)
+      .then((res) => {
+        vuexContext.dispatch('getAbout')
         return res
       })
       .catch((e) => e)

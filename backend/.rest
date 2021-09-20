@@ -1,10 +1,14 @@
 POST http://localhost:3000/api/about/ HTTP/1.1
 content-type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VybmFtZTEiLCJpYXQiOjE2MzE4ODY5OTcsImV4cCI6MTYzMjQ5MTc5N30.IvdKzTCv7dNSIWjV4Oq17ugBaRjNcBevEQOtA-FBHfU
 
 {
-    "az": "az3 about",
-    "en": "en3 about",
-    "ru": "ru3 about"
+    "descriptionAZ": "az description about 3",
+    "descriptionEN": "en description about 3",
+    "descriptionRU": "ru desction about 3",
+    "titleAZ": "az title about 3",
+    "titleEN": "en title about 3",
+    "titleRU": "ru title about 3"
 }
 
 ###

@@ -30,7 +30,15 @@ export class AboutService {
     if (!found) {
       throw new NotFoundException(`About not found`);
     }
-    return found;
+    return found.sort((a, b) => {
+      let compare = 0;
+      if (a.id > b.id) {
+        compare = 1;
+      } else if (b.id > a.id) {
+        compare = -1;
+      }
+      return compare;
+    });
   }
 
   async update(updateAboutDto: UpdateAboutDto, id: number): Promise<About> {

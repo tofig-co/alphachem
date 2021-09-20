@@ -32,7 +32,7 @@ export class AboutController {
     return this.aboutService.find();
   }
 
-  @Patch()
+  @Patch(":id")
   @UseGuards(AuthGuard())
   update(@Body() updateAboutDto: UpdateAboutDto, @Param("id") id: string) {
     return this.aboutService.update(updateAboutDto, +id);
