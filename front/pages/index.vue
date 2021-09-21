@@ -1,9 +1,9 @@
-<template><div></div></template>
+<template><div>home</div></template>
 
 <script>
 export default {
   mounted() {
-    this.$router.push('/login')
+    // this.$router.push('/login')
   },
 }
 </script>

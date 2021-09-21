@@ -82,6 +82,7 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field])
 }
 export default {
+  layout: 'login',
   data() {
     return {
       hasErrors,
