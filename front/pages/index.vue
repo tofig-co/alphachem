@@ -1,9 +1,22 @@
-<template><div>home</div></template>
+<template>
+  <div><Header :pageTitle="'test'" /><Slider :sliderData="sliderData" /></div>
+</template>
 
 <script>
 export default {
-  mounted() {
-    // this.$router.push('/login')
+  data() {
+    return {
+      title: 'Home',
+    }
+  },
+  head() {
+    return {
+      title: 'Alphachem - ' + this.title,
+    }
+  },
+  async asyncData({ app: { $axios } }) {
+    const sliderData = await $axios.$get('/api/slider')
+    return sliderData
   },
 }
 </script>

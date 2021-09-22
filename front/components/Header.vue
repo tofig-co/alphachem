@@ -35,7 +35,7 @@
 export default {
   props: {
     pageTitle: {
-      type: Object,
+      type: String,
       required: true,
     },
   },
