@@ -3,7 +3,7 @@
     <div class="mu-slide">
       <div class="mu-single-slide" v-for="sliderItem in sliderData">
         <img
-          :src="'/api/slider/image/' + sliderItem.imageSrc"
+          :src="'/api/slider/image/' + sliderItem.imageUrl"
           alt="slider img"
         />
         <div class="mu-single-slide-content-area">
@@ -24,10 +24,9 @@
 </template>
 <script>
 export default {
-  props: {
-    sliderData: {
-      type: Array,
-      required: true,
+  computed: {
+    sliderData() {
+      return this.$store.state.slider
     },
   },
   mounted() {

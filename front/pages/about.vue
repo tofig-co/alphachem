@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Header :pageTitle="'test'" />
-    <Slider />
+    <Header :pageTitle="title" />
+    <PageHeader :pageTitle="title" />
+
     <main>
       <About />
-      <Products />
     </main>
   </div>
 </template>
@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      title: 'Home',
+      title: 'About',
     }
   },
   head() {

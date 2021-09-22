@@ -2,10 +2,8 @@
   <header id="mu-hero">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light mu-navbar">
-        <nuxt-link to="/">
-          <a class="navbar-brand mu-logo">
-            <img src="/alpha_logo_colored.svg" alt="" />
-          </a>
+        <nuxt-link to="/" class="navbar-brand mu-logo">
+          <img src="/alpha_logo_colored.svg" alt="" />
         </nuxt-link>
 
         <button
