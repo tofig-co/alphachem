@@ -30,10 +30,18 @@ export const mutations = {
 export const actions = {
   authenticateUser(vuexContext, authData) {
     return this.$axios
-      .$post('/api/auth/signin', {
-        username: authData.username,
-        password: authData.password,
-      })
+      .$post(
+        '/api/auth/signin',
+        {
+          username: authData.username,
+          password: authData.password,
+        },
+        {
+          header: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
       .then((res) => {
         vuexContext.commit('setToken', res.accessToken)
         localStorage.setItem('token', res.accessToken)

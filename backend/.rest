@@ -1,6 +1,6 @@
-POST http://localhost:3000/api/about/ HTTP/1.1
+POST http://alphachem.az/api/about/ HTTP/1.1
 content-type: application/json 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VybmFtZTEiLCJpYXQiOjE2MzE4ODY5OTcsImV4cCI6MTYzMjQ5MTc5N30.IvdKzTCv7dNSIWjV4Oq17ugBaRjNcBevEQOtA-FBHfU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjMyMzE5MTgzLCJleHAiOjE2MzI5MjM5ODN9.WZZm-ms4UvH-31xBrncuCmxWx8gH2Rvh7N2QxpN2zHM
 
 {
     "descriptionAZ": "az description about 3",
@@ -29,8 +29,9 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3000/api/contacts/ HTTP/1.1
+POST http://alphachem.az/api/contacts/ HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjMyMzE5MTgzLCJleHAiOjE2MzI5MjM5ODN9.WZZm-ms4UvH-31xBrncuCmxWx8gH2Rvh7N2QxpN2zHM
 
 {
     "adressAZ": "[AZ]349 Main St, Deseronto, ON K0K 1X0, Canada",
@@ -71,9 +72,9 @@ content-type: application/json
 
 ###
 
-PATCH http://localhost:3000/api/products/3 HTTP/1.1
+PATCH https://alphachem.az/api/products/3 HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VybmFtZTEiLCJpYXQiOjE2MzE4ODY5OTcsImV4cCI6MTYzMjQ5MTc5N30.IvdKzTCv7dNSIWjV4Oq17ugBaRjNcBevEQOtA-FBHfU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjMyMjI4MzgzLCJleHAiOjE2MzI4MzMxODN9.QEghMtqBh785YmYZwXXsk65PPFFVd2ZmiJTqufH4Xv4
 
 {
     "titleAZ": "updated title"
@@ -92,7 +93,7 @@ content-type: application/json
 
 ###
 
-POST https://alphachem.az/api/auth/signup HTTP/1.1
+POST http://alphachem.az/api/auth/signin HTTP/1.1
 content-type: application/json
 
 {
