@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header :pageTitle="title" />
-    <PageHeader :pageTitle="title" />
+    <PageHeader :pageTitle="'/contact'" />
 
     <main>
       <section id="mu-contact">
@@ -12,8 +12,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="mu-title">
-                      <h2>t('contact_say_hello')}</h2>
-                      <p>t('contact_description')}</p>
+                      <h2>{{ $t('contact_say_hello') }}</h2>
+                      <p>{{ $t('contact_description') }}</p>
                     </div>
                   </div>
                 </div>
@@ -21,12 +21,12 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="mu-single-footer">
-                        <h3>t('contact_info')}</h3>
+                        <h3>{{ $t('contact_info') }}</h3>
                         <ul class="list-unstyled">
                           <li class="media">
                             <span class="fa fa-home"></span>
                             <div class="media-body">
-                              <p>{{ contactsData.adressAZ }}</p>
+                              <p>{{ contactsData['adress' + lang] }}</p>
                             </div>
                           </li>
                           <li class="media">
@@ -85,6 +85,11 @@ export default {
     return {
       title: 'Contacts',
     }
+  },
+  computed: {
+    lang() {
+      return this.$store.state.i18n.locale.toUpperCase()
+    },
   },
   head() {
     return {

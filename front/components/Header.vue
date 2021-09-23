@@ -21,10 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto mu-navbar-nav">
             <li class="nav-item" v-for="route in routes">
-              <nuxt-link :to="route.path">{{ route.title }}</nuxt-link>
+              <nuxt-link :to="route.path">{{
+                $t('nav.' + route.path)
+              }}</nuxt-link>
             </li>
           </ul>
         </div>
+        <LanguageSwitcher />
       </nav>
     </div>
   </header>

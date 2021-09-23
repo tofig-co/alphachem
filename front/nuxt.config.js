@@ -30,8 +30,39 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    [
+      'nuxt-i18n',
+      {
+        defaultLocale: 'az',
+        locales: [
+          {
+            code: 'az',
+            file: 'az-AZ.js',
+            name: 'Azərbaycan',
+          },
+          {
+            code: 'en',
+            file: 'en-US.js',
+            name: 'English',
+          },
+          {
+            code: 'ru',
+            file: 'ru-RU.js',
+            name: 'Русский',
+          },
+        ],
+        lazy: true,
+        langDir: 'locales/',
+        strategy: 'no_prefix',
+        vueI18n: {
+          fallbackLocale: 'az',
+        },
+        vuex: {
+          syncLocale: true,
+        },
+      },
+    ],
   ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'https://alphachem.az/api',

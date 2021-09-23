@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header :pageTitle="title" />
-    <PageHeader :pageTitle="title" />
+    <PageHeader :pageTitle="'/about'" />
 
     <main>
       <About :aboutData="aboutData" />

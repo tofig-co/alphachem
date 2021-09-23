@@ -7,8 +7,8 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="mu-title">
-                  <h2>t('about_title')}</h2>
-                  <p>t('about_description')}</p>
+                  <h2>{{ $t('about_title') }}</h2>
+                  <p>{{ $t('about_description') }}</p>
                 </div>
               </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="mu-about-right">
                   <ul>
                     <li v-for="about in aboutData">
-                      <h3>{{ about.titleAZ }}</h3>
+                      <h3>{{ about['title' + lang] }}</h3>
                       <p>{{ about.descriptionAZ }}</p>
                     </li>
                   </ul>
@@ -38,6 +38,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    lang() {
+      return this.$store.state.i18n.locale.toUpperCase()
+    },
+  },
   props: {
     aboutData: {
       type: Array,
