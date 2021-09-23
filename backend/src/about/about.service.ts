@@ -52,4 +52,12 @@ export class AboutService {
     await about.save();
     return about;
   }
+
+  async remove(id: number) {
+    const result = await this.aboutRepository.delete(id);
+
+    if (!result.affected) {
+      throw new NotFoundException(`About with id: "${id}" is not found`);
+    }
+  }
 }

@@ -37,4 +37,10 @@ export class AboutController {
   update(@Body() updateAboutDto: UpdateAboutDto, @Param("id") id: string) {
     return this.aboutService.update(updateAboutDto, +id);
   }
+
+  @Delete(":id")
+  @UseGuards(AuthGuard())
+  remove(@Param("id") id: string) {
+    return this.aboutService.remove(+id);
+  }
 }
