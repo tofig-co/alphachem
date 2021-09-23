@@ -187,10 +187,4 @@ export const actions = {
     localStorage.removeItem('tokenExpiration')
     vuexContext.commit('clearToken')
   },
-  async nuxtServerInit({ dispatch }) {
-    await dispatch('getSlider')
-    await dispatch('getProducts')
-    await dispatch('getAbout')
-    await dispatch('getContacts')
-  },
 }

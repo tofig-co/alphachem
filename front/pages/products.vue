@@ -4,7 +4,7 @@
     <PageHeader :pageTitle="title" />
 
     <main>
-      <Products />
+      <Products :productsData="productsData" />
     </main>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
     return {
       title: 'Alphachem - ' + this.title,
     }
+  },
+  async asyncData(context) {
+    const productsData = await context.app.$axios.$get(`/api/products/`)
+
+    return { productsData }
   },
 }
 </script>

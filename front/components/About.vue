@@ -38,9 +38,10 @@
 </template>
 <script>
 export default {
-  computed: {
-    aboutData() {
-      return this.$store.state.about
+  props: {
+    aboutData: {
+      type: Array,
+      required: true,
     },
   },
 }

@@ -91,10 +91,10 @@ export default {
       title: 'Alphachem - ' + this.title,
     }
   },
-  computed: {
-    contactsData() {
-      return this.$store.state.contacts
-    },
+
+  async asyncData(context) {
+    const contactsData = await context.app.$axios.$get(`/api/contacts/`)
+    return { contactsData }
   },
 }
 </script>

@@ -24,9 +24,10 @@
 </template>
 <script>
 export default {
-  computed: {
-    sliderData() {
-      return this.$store.state.slider
+  props: {
+    sliderData: {
+      type: Array,
+      required: true,
     },
   },
   mounted() {

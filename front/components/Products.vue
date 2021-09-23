@@ -58,9 +58,10 @@ export default {
       },
     })
   },
-  computed: {
-    productsData() {
-      return this.$store.state.products
+  props: {
+    productsData: {
+      type: Array,
+      required: true,
     },
   },
 }

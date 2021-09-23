@@ -4,7 +4,7 @@
     <PageHeader :pageTitle="title" />
 
     <main>
-      <About />
+      <About :aboutData="aboutData" />
     </main>
   </div>
 </template>
@@ -15,6 +15,10 @@ export default {
     return {
       title: 'About',
     }
+  },
+  async asyncData(context) {
+    const aboutData = await context.app.$axios.$get(`/api/about/`)
+    return { aboutData }
   },
   head() {
     return {
