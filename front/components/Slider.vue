@@ -11,8 +11,8 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="mu-single-slide-content">
-                  <h1>{{ sliderItem.titleAZ }}</h1>
-                  <p>{{ sliderItem.descriptionAZ }}</p>
+                  <h1>{{ sliderItem['title' + lang] }}</h1>
+                  <p>{{ sliderItem['description' + lang] }}</p>
                 </div>
               </div>
             </div>
@@ -28,6 +28,11 @@ export default {
     sliderData: {
       type: Array,
       required: true,
+    },
+  },
+  computed: {
+    lang() {
+      return this.$store.state.i18n.locale.toUpperCase()
     },
   },
   mounted() {

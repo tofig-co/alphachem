@@ -24,7 +24,7 @@
                   <ul>
                     <li v-for="about in aboutData">
                       <h3>{{ about['title' + lang] }}</h3>
-                      <p>{{ about.descriptionAZ }}</p>
+                      <p>{{ about['description' + lang] }}</p>
                     </li>
                   </ul>
                 </div>

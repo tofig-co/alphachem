@@ -23,7 +23,7 @@
                     <a
                       class="mu-imglink"
                       :href="'/api/products/image/' + product.imageUrl"
-                      :title="product.titleAZ"
+                      :title="product['title' + lang]"
                     >
                       <img
                         class="img-responsive"
@@ -32,7 +32,7 @@
                       />
                       <div class="mu-filter-item-content">
                         <h4 class="mu-filter-item-title">
-                          {{ product.titleAZ }}
+                          {{ product['title' + lang] }}
                         </h4>
                         <span class="fa fa-long-arrow-right"></span>
                       </div>
@@ -49,6 +49,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    lang() {
+      return this.$store.state.i18n.locale.toUpperCase()
+    },
+  },
   mounted() {
     $('.mu-imglink').magnificPopup({
       type: 'image',
