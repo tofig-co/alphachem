@@ -205,8 +205,8 @@ export default {
             adressRU,
             locationLat,
             locationLong,
-            phones: values.phone1 + ',' + values.phone1,
-            emails: values.email1 + ',' + values.email1,
+            phones: values.phone1 + ',' + values.phone2,
+            emails: values.email1 + ',' + values.email2,
           }
 
           this.$store.dispatch('editContacts', data)
