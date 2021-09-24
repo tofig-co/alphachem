@@ -42,6 +42,7 @@ export default {
   methods: {
     set_locale(code) {
       this.$i18n.setLocale(code)
+      window.location.reload()
     },
     setOpen(isOpened) {
       this.open = isOpened
@@ -82,6 +83,7 @@ export default {
   border-radius: 0 0 15px 15px;
   background: #fff;
   box-shadow: 0px 2px 2px 0px #000;
+  z-index: 11;
 }
 
 .lang-switcher ul li {

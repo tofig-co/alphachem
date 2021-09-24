@@ -2,7 +2,7 @@
   <a-layout id="components-layout-demo-custom-trigger" v-if="token">
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
       <div class="logo"><span v-if="!collapsed">Alphachem Admin</span></div>
-      <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
+      <a-menu theme="dark" mode="inline" :default-selected-keys="[getRoute()]">
         <a-menu-item key="1">
           <nuxt-link :to="'/admin/slider'">
             <a-icon type="file" />
@@ -57,6 +57,12 @@ export default {
   data() {
     return {
       collapsed: false,
+      keys: {
+        slider: '1',
+        products: '2',
+        about: '3',
+        contacts: '4',
+      },
     }
   },
   methods: {
@@ -64,6 +70,9 @@ export default {
       this.$store.dispatch('logout').then((v) => {
         window.location.reload()
       })
+    },
+    getRoute() {
+      return this.keys[this.$route.path.replace('/admin/', '')]
     },
   },
   name: 'admin-layout',
