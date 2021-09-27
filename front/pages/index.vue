@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :pageTitle="'test'" />
+    <Header :pageTitle="title" />
     <Slider :sliderData="sliderData" />
     <main>
       <About :aboutData="aboutData" />

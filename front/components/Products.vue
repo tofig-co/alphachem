@@ -20,23 +20,22 @@
                     class="col-xs-6 col-sm-6 col-md-4 filtr-item"
                     v-for="product in productsData"
                   >
-                    <a
-                      class="mu-imglink"
-                      :href="'/api/products/image/' + product.imageUrl"
-                      :title="product['title' + lang]"
-                    >
+                    <nuxt-link :to="'/products/' + product.id">
                       <img
                         class="img-responsive"
                         :src="'/api/products/image/' + product.imageUrl"
                         alt="image"
                       />
                       <div class="mu-filter-item-content">
-                        <h4 class="mu-filter-item-title">
+                        <h4
+                          class="mu-filter-item-title"
+                          style="color: #fff; text-transform: uppercase"
+                        >
                           {{ product['title' + lang] }}
                         </h4>
                         <span class="fa fa-long-arrow-right"></span>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
@@ -53,15 +52,6 @@ export default {
     lang() {
       return this.$store.state.i18n.locale.toUpperCase()
     },
-  },
-  mounted() {
-    $('.mu-imglink').magnificPopup({
-      type: 'image',
-      mainClass: 'mfp-fade',
-      gallery: {
-        enabled: true,
-      },
-    })
   },
   props: {
     productsData: {

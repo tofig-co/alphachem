@@ -12,6 +12,7 @@ import {
   UsePipes,
   ValidationPipe,
   UseGuards,
+  Query,
 } from "@nestjs/common";
 import { ProductsService } from "./products.service";
 import { CreateProductDto } from "./dto/create-product.dto";
@@ -21,6 +22,8 @@ import { editFileName, imageFileFilter } from "src/utils/file-uploading.utils";
 import { diskStorage } from "multer";
 import { Product } from "./entities/product.entity";
 import { AuthGuard } from "@nestjs/passport";
+import { categories } from "./categories";
+import { FilterDto } from "./dto/filter.dto";
 
 @Controller("products")
 export class ProductsController {
@@ -51,8 +54,13 @@ export class ProductsController {
   }
 
   @Get()
-  findAll(): Promise<Product[]> {
-    return this.productsService.findAll();
+  findAll(@Query() category: FilterDto): Promise<Product[]> {
+    return this.productsService.findAll(category);
+  }
+
+  @Get("/categories")
+  find() {
+    return categories;
   }
 
   @Get(":id")

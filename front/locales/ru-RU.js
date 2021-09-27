@@ -22,4 +22,5 @@ export default {
     '[RU]Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis.',
   contact_say_hello: 'свяжитесь с нами!',
   contact_info: 'контактная информация',
+  more: 'Подробнее',
 }

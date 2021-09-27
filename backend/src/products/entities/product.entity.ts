@@ -15,5 +15,17 @@ export class Product extends BaseEntity {
   titleRU: string;
 
   @Column()
+  descriptionAZ: string;
+
+  @Column()
+  descriptionEN: string;
+
+  @Column()
+  descriptionRU: string;
+
+  @Column()
+  category: string;
+
+  @Column()
   imageUrl: string;
 }

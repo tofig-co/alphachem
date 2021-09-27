@@ -22,4 +22,5 @@ export default {
     '[EN]Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis.',
   contact_say_hello: 'say hello',
   contact_info: 'CONTACT INFORMATION',
+  more: 'See more',
 }

@@ -32,6 +32,7 @@
       title="Add slider"
       :visible="visible"
       :confirm-loading="confirmLoading"
+      width="750px"
       @ok="handleSubmit"
       @cancel="handleCancel"
     >
@@ -39,8 +40,7 @@
         <a-form-item
           v-for="item in addFields"
           :key="item.key"
-          :validate-status="fieldError(item.key) ? 'error' : ''"
-          :help="fieldError(item.key) || ''"
+          :label="item.placeholder"
         >
           <a-input
             v-decorator="[
@@ -54,7 +54,6 @@
                 ],
               },
             ]"
-            :placeholder="item.placeholder"
           >
           </a-input>
         </a-form-item>

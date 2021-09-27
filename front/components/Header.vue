@@ -20,10 +20,22 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto mu-navbar-nav">
-            <li class="nav-item" v-for="route in routes">
+            <li
+              class="nav-item"
+              v-for="route in routes"
+              v-bind:class="{ active: pageTitle === route.title }"
+            >
               <nuxt-link :to="route.path">{{
                 $t('nav.' + route.path)
               }}</nuxt-link>
+              <ul class="dropdown-menu" v-if="route.path === '/products'">
+                <li v-for="(subRoute, subKey) in subRoutes">
+                  <nuxt-link
+                    :to="{ path: '/products', query: { category: subKey } }"
+                    >{{ subRoute }}</nuxt-link
+                  >
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -60,7 +72,12 @@ export default {
           title: 'Contact us',
         },
       ],
+      subRoutes: [],
     }
   },
+  async fetch() {
+    this.subRoutes = await this.$axios.$get('/api/products/categories')
+  },
+  fetchKey: 'sub-routes',
 }
 </script>

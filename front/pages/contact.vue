@@ -83,7 +83,7 @@
 export default {
   data() {
     return {
-      title: 'Contacts',
+      title: 'Contact us',
     }
   },
   computed: {

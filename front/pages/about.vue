@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      title: 'About',
+      title: 'About us',
     }
   },
   async asyncData(context) {

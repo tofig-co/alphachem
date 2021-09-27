@@ -4,7 +4,10 @@
       <div class="row">
         <div class="col-md-12">
           <div class="mu-page-header-area">
-            <h1 class="mu-page-header-title">{{ $t('nav.' + pageTitle) }}</h1>
+            <h1 class="mu-page-header-title">
+              {{ $t('nav.' + pageTitle)
+              }}<span v-if="productName"> - {{ productName }}</span>
+            </h1>
           </div>
         </div>
       </div>
@@ -17,6 +20,10 @@ export default {
     pageTitle: {
       type: String,
       required: true,
+    },
+    productName: {
+      type: String,
+      required: false,
     },
   },
 }

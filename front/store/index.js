@@ -4,6 +4,7 @@ export const state = () => ({
   products: [],
   about: [],
   contacts: null,
+  categories: null,
 })
 
 export const mutations = {
@@ -19,6 +20,9 @@ export const mutations = {
   },
   setProducts(state, products) {
     state.products = products
+  },
+  setProductCategories(state, categories) {
+    state.categories = categories
   },
   setAbout(state, about) {
     state.about = about
@@ -99,6 +103,14 @@ export const actions = {
       .$get('/api/products')
       .then((res) => {
         vuexContext.commit('setProducts', res)
+      })
+      .catch((e) => console.log(e))
+  },
+  getProductCategories(vuexContext) {
+    return this.$axios
+      .$get('/api/products/categories')
+      .then((res) => {
+        vuexContext.commit('setProductCategories', res)
       })
       .catch((e) => console.log(e))
   },

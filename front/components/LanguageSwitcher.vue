@@ -83,7 +83,7 @@ export default {
   border-radius: 0 0 15px 15px;
   background: #fff;
   box-shadow: 0px 2px 2px 0px #000;
-  z-index: 11;
+  z-index: 21;
 }
 
 .lang-switcher ul li {

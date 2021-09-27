@@ -32,15 +32,37 @@
       title="Add product"
       :visible="visible"
       :confirm-loading="confirmLoading"
+      width="750px"
       @ok="handleSubmit"
       @cancel="handleCancel"
     >
       <a-form :form="form" @submit="handleSubmit">
+        <a-form-item label="Categories">
+          <a-select
+            mode="multiple"
+            style="width: 100%"
+            placeholder="Please select"
+            v-decorator="[
+              'category',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: `Please select Category!`,
+                  },
+                ],
+              },
+            ]"
+          >
+            <a-select-option v-for="cat in categories" :key="cat">
+              {{ cat }}
+            </a-select-option>
+          </a-select>
+        </a-form-item>
         <a-form-item
           v-for="item in addFields"
           :key="item.key"
-          :validate-status="fieldError(item.key) ? 'error' : ''"
-          :help="fieldError(item.key) || ''"
+          :label="item.placeholder"
         >
           <a-input
             v-decorator="[
@@ -54,7 +76,6 @@
                 ],
               },
             ]"
-            :placeholder="item.placeholder"
           >
           </a-input>
         </a-form-item>
@@ -97,6 +118,12 @@ const columns = [
     scopedSlots: { customRender: 'imageUrl' },
   },
   {
+    title: 'Categories',
+    dataIndex: 'category',
+    key: 'category',
+    ellipsis: true,
+  },
+  {
     title: 'Title AZ',
     dataIndex: 'titleAZ',
     key: 'titleAZ',
@@ -112,6 +139,24 @@ const columns = [
     title: 'Title RU',
     dataIndex: 'titleRU',
     key: 'titleRU',
+    ellipsis: true,
+  },
+  {
+    title: 'Description AZ',
+    dataIndex: 'descriptionAZ',
+    key: 'descriptionAZ',
+    ellipsis: true,
+  },
+  {
+    title: 'Description EN',
+    dataIndex: 'descriptionEN',
+    key: 'descriptionEN',
+    ellipsis: true,
+  },
+  {
+    title: 'Description RU',
+    dataIndex: 'descriptionRU',
+    key: 'descriptionRU',
     ellipsis: true,
   },
   {
@@ -143,6 +188,18 @@ export default {
           key: 'titleRU',
           placeholder: 'Title RU',
         },
+        {
+          key: 'descriptionAZ',
+          placeholder: 'Description AZ',
+        },
+        {
+          key: 'descriptionEN',
+          placeholder: 'Description EN',
+        },
+        {
+          key: 'descriptionRU',
+          placeholder: 'Description RU',
+        },
       ],
       actionType: 'add',
       itemId: 0,
@@ -152,9 +209,13 @@ export default {
     products() {
       return this.$store.state.products
     },
+    categories() {
+      return this.$store.state.categories
+    },
   },
   mounted() {
     this.$store.dispatch('getProducts')
+    this.$store.dispatch('getProductCategories')
     this.$nextTick(() => {
       this.form.validateFields()
     })
@@ -172,6 +233,10 @@ export default {
               titleAZ: res.titleAZ,
               titleEN: res.titleEN,
               titleRU: res.titleRU,
+              descriptionAZ: res.descriptionAZ,
+              descriptionEN: res.descriptionEN,
+              descriptionRU: res.descriptionRU,
+              category: res.category.split(','),
             })
           })
           .catch((e) => console.log(e))
@@ -209,7 +274,6 @@ export default {
               formData.append(key, value)
             }
           }
-
           formData.append('photo', file)
 
           const type = this.actionType === 'add' ? 'addProduct' : 'editProduct'

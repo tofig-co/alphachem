@@ -42,10 +42,6 @@ export default {
         },
         {
           rel: 'stylesheet',
-          href: '/css/magnific-popup.css',
-        },
-        {
-          rel: 'stylesheet',
           href: 'https://unpkg.com/circlebars@1.0.3/dist/circle.css',
         },
         {
@@ -81,10 +77,7 @@ export default {
           src: '/js/slick.min.js',
           type: 'text/javascript',
         },
-        {
-          src: '/js/jquery.magnific-popup.min.js',
-          type: 'text/javascript',
-        },
+
         {
           src: '/js/app.js',
           type: 'text/javascript',

@@ -21,8 +21,13 @@ export default {
       title: 'Alphachem - ' + this.title,
     }
   },
+  watchQuery: true,
   async asyncData(context) {
-    const productsData = await context.app.$axios.$get(`/api/products/`)
+    const category = context.route.query.category
+    const queryparams = category ? `?category=${category}` : ''
+    const productsData = await context.app.$axios.$get(
+      `/api/products${queryparams}`
+    )
 
     return { productsData }
   },
