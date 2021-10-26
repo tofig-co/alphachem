@@ -8,7 +8,7 @@
               <div class="col-md-12">
                 <div class="mu-title">
                   <h2>{{ $t('products_title') }}</h2>
-                  <p>{{ $t('products_description') }}</p>
+                  <!-- <p>{{ $t('products_description') }}</p> -->
                 </div>
               </div>
             </div>

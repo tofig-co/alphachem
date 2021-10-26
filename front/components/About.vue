@@ -8,7 +8,7 @@
               <div class="col-md-12">
                 <div class="mu-title">
                   <h2>{{ $t('about_title') }}</h2>
-                  <p>{{ $t('about_description') }}</p>
+                  <!--                  <p>{{ $t('about_description') }}</p> -->
                 </div>
               </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mu-about-left">
-                  <img class="" src="/images/about.jpg" alt="img" />
+                  <img class="" src="/images/about-new.jpg" alt="img" />
                 </div>
               </div>
               <div class="col-md-6">

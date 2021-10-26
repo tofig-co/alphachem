@@ -13,7 +13,7 @@
                   <div class="col-md-12">
                     <div class="mu-title">
                       <h2>{{ $t('contact_say_hello') }}</h2>
-                      <p>{{ $t('contact_description') }}</p>
+                      <!-- <p>{{ $t('contact_description') }}</p> -->
                     </div>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                               <p
                                 v-for="phone in contactsData.phones.split(',')"
                               >
-                                {{ phone }}
+                                <a :href="'tel:' + phone">{{ phone }}</a>
                               </p>
                             </div>
                           </li>
@@ -45,7 +45,7 @@
                               <p
                                 v-for="email in contactsData.emails.split(',')"
                               >
-                                {{ email }}
+                                <a :href="'mailto:' + email">{{ email }}</a>
                               </p>
                             </div>
                           </li>
@@ -124,5 +124,9 @@ export default {
   background: none !important;
   height: 500px;
   width: 600px;
+}
+.mu-single-footer .list-unstyled li.media a {
+  font-size: 14px;
+  text-decoration: underline;
 }
 </style>
