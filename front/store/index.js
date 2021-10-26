@@ -192,7 +192,9 @@ export const actions = {
       vuexContext.commit('clearToken')
       return
     }
-    vuexContext.commit('setToken', token)
+    return this.$axios.$get('/api/auth/check').then(() => {
+      vuexContext.commit('setToken', token)
+    })
   },
   logout(vuexContext) {
     localStorage.removeItem('token')

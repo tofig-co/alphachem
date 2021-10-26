@@ -83,10 +83,11 @@ export default {
   },
   watch: {
     $route() {
-      this.$store.dispatch('initAuth').then()
-      if (!this.token) {
-        this.$router.push('/login')
-      }
+      this.$store.dispatch('initAuth').then(() => {
+        if (!this.token) {
+          this.$router.push('/login')
+        }
+      })
     },
   },
   mounted() {

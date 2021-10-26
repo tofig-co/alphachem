@@ -53,7 +53,7 @@ export default {
   },
   head() {
     return {
-      title: 'Alphachem - ' + this.title,
+      title: 'Alphachem - ' + this.product['title' + this.lang],
     }
   },
   async asyncData(context) {
